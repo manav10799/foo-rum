@@ -20,7 +20,7 @@ const PostEditor = () => {
   const emojiList = ["😀", "✌🏻", "😡", "🚀", "🥳"];
   const { user } = useContext(CurrentUser);
   const functionNotImplement = () => {
-    alert("Function Not Implemented!!!");
+    alert("Functionality Not Implemented!!!");
   };
   useEffect(() => {
     if (!showEmojiPicker) return;
@@ -87,7 +87,7 @@ const PostEditor = () => {
                 <span ref={emojiAnchorRef} className="relative">
                   <img
                     src={smileIcon}
-                    className="mt-[px] mr-1.5 cursor-pointer"
+                    className="mt-[3px] mr-1.5 cursor-pointer"
                     alt="Pick emoji"
                     onClick={() => setShowEmojiPicker((v) => !v)}
                     tabIndex={0}
@@ -127,10 +127,16 @@ const PostEditor = () => {
               <div className="border-b w-full border-[#D9D9D9]"></div>
               <div className="flex items-center justify-between py-1.5 px-2.5">
                 <div className="flex items-center gap-3 text-gray-500">
-                  <span className="p-1.5 bg-black/6 rounded-[10px] cursor-pointer">
+                  <span
+                    className="p-1.5 bg-black/6 rounded-[10px] cursor-pointer"
+                    onClick={functionNotImplement}
+                  >
                     <img src={plusIcon} />
                   </span>
-                  <span className="cursor-pointer">
+                  <span
+                    className="cursor-pointer"
+                    onClick={functionNotImplement}
+                  >
                     <svg
                       width="18"
                       height="18"
@@ -148,7 +154,10 @@ const PostEditor = () => {
                       />
                     </svg>
                   </span>
-                  <span className="cursor-pointer">
+                  <span
+                    className="cursor-pointer"
+                    onClick={functionNotImplement}
+                  >
                     <svg
                       width="18"
                       height="18"

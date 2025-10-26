@@ -3,6 +3,9 @@ import Card from "../components/Card";
 import { useSelector } from "react-redux";
 
 const Posts = () => {
+  const functionNotImplement = () => {
+    alert("Functionality Not Implemented!!!");
+  };
   const postSelector = useSelector((store) => store?.postSlice);
   return (
     <div>
@@ -36,7 +39,7 @@ const Posts = () => {
             }
             outerChildren={
               <div className="flex items-center gap-6.5 pt-2 px-3.5">
-                <span className="cursor-pointer">
+                <span className="cursor-pointer" onClick={functionNotImplement}>
                   <svg
                     width="18"
                     height="18"
@@ -53,7 +56,7 @@ const Posts = () => {
                     />
                   </svg>
                 </span>
-                <span className="cursor-pointer">
+                <span className="cursor-pointer" onClick={functionNotImplement}>
                   <svg
                     width="18"
                     height="18"
@@ -70,7 +73,7 @@ const Posts = () => {
                     />
                   </svg>
                 </span>
-                <span className="cursor-pointer">
+                <span className="cursor-pointer" onClick={functionNotImplement}>
                   <svg
                     width="18"
                     height="18"
