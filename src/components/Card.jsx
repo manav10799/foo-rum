@@ -8,7 +8,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`w-full mx-auto rounded-2xl px-2 max-w-[568px] ${
+      className={`mx-auto rounded-2xl px-2 max-w-[568px] ${
         outerClassName || ""
       }`}
     >

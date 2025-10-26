@@ -19,6 +19,9 @@ const PostEditor = () => {
   const [currentEmoji, setCurrentEmoji] = useState("");
   const emojiList = ["😀", "✌🏻", "😡", "🚀", "🥳"];
   const { user } = useContext(CurrentUser);
+  const functionNotImplement = () => {
+    alert("Function Not Implemented!!!");
+  };
   useEffect(() => {
     if (!showEmojiPicker) return;
     function handleClickOutside(event) {
@@ -70,8 +73,13 @@ const PostEditor = () => {
           innerChildren={
             <div>
               <div className="flex items-center justify-between p-2.5">
-                <TextEditorOptions />
-                <button className="p-3 bg-[#FF0000]/15 hover:bg-red-200 rounded-lg cursor-pointer">
+                <TextEditorOptions
+                  functionNotImplement={functionNotImplement}
+                />
+                <button
+                  className="p-3 bg-[#FF0000]/15 hover:bg-red-200 rounded-lg cursor-pointer"
+                  onClick={functionNotImplement}
+                >
                   <img src={trashIcon} />
                 </button>
               </div>
@@ -79,7 +87,7 @@ const PostEditor = () => {
                 <span ref={emojiAnchorRef} className="relative">
                   <img
                     src={smileIcon}
-                    className="mt-[5px] mr-1.5 cursor-pointer"
+                    className="mt-[px] mr-1.5 cursor-pointer"
                     alt="Pick emoji"
                     onClick={() => setShowEmojiPicker((v) => !v)}
                     tabIndex={0}
@@ -112,7 +120,7 @@ const PostEditor = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="How are you feeling today?"
-                  className="w-full resize-none border-none outline-none text-black/80 placeholder:text-black/40"
+                  className="w-full resize-none border-none outline-none text-black/80 placeholder:text-black/40 text-sm"
                   rows="3"
                 />
               </div>

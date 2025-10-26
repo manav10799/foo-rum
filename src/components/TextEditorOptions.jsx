@@ -10,13 +10,16 @@ const toolbarOptions = [
   { id: "code", group: "block" },
 ];
 
-const TextEditorOptions = () => {
+const TextEditorOptions = ({ functionNotImplement }) => {
   const [selected, setSelected] = useState(["bold"]);
 
   const toggleOption = (id) => {
     setSelected((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
+    setTimeout(() => {
+      functionNotImplement();
+    }, 100);
   };
 
   return (
