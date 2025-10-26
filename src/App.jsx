@@ -4,15 +4,19 @@ import Container from "./layout/Container";
 import Home from "./pages/Home";
 import CurrentUser from "./context/UserContext";
 import { useContext, useState } from "react";
+import { Provider } from "react-redux";
+import AppStore from "./store/AppStore";
 
 function App() {
   const currentUser = useContext(CurrentUser);
   const [user, setUser] = useState(currentUser);
   return (
     <div className="py-7 px-10 h-screen">
-      <CurrentUser.Provider value={{ user, setUser }}>
-        <RouterProvider router={browserRouter}></RouterProvider>
-      </CurrentUser.Provider>
+      <Provider store={AppStore}>
+        <CurrentUser.Provider value={{ user, setUser }}>
+          <RouterProvider router={browserRouter}></RouterProvider>
+        </CurrentUser.Provider>
+      </Provider>
     </div>
   );
 }

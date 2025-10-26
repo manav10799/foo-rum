@@ -5,7 +5,7 @@ import CurrentUser from "../context/UserContext";
 import { USERS as INITIAL_USERS } from "../utils/users";
 import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = ({ onClose }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const { user, setUser } = useContext(CurrentUser);
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const Login = () => {
       setUsers([...users, newUser]);
       setUser(newUser);
       setError("");
+      if (onClose) onClose();
       navigate("/");
       alert("Signed up successfully!");
     } else {
@@ -60,6 +61,7 @@ const Login = () => {
       if (currentUser) {
         setUser(currentUser);
         setError("");
+        if (onClose) onClose();
         alert("Signed in successfully!");
         navigate("/");
       } else {
@@ -159,6 +161,8 @@ const Login = () => {
             </a>
           </p>
         }
+        outerClassName="p-3 bg-[#EBEBEB]"
+        innerClassName="shadow-sm"
       />
     </div>
   );

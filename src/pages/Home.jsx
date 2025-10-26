@@ -1,7 +1,14 @@
 import React from "react";
+import Posts from "./Posts";
+import PostEditor from "./PostEditor";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <section>
+      <PostEditor />
+      <Posts />
+    </section>
+  );
 };
 
 export default Home;

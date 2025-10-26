@@ -1,5 +1,7 @@
+import { useContext, useEffect } from "react";
 import Header from "./Header";
-import { Outlet } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
+import CurrentUser from "../context/UserContext";
 
 const Container = () => {
   return (

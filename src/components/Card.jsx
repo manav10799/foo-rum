@@ -1,9 +1,20 @@
 import React from "react";
 
-const Card = ({ outerChildren, innerChildren, className }) => {
+const Card = ({
+  outerChildren,
+  innerChildren,
+  outerClassName,
+  innerClassName,
+}) => {
   return (
-    <div className={`bg-[#EBEBEB] p-3 rounded-3xl`}>
-      <div className="bg-white rounded-2xl">{innerChildren}</div>
+    <div
+      className={`w-full mx-auto rounded-2xl px-2 max-w-[568px] ${
+        outerClassName || ""
+      }`}
+    >
+      <div className={`bg-white rounded-xl w-full ${innerClassName || ""}`}>
+        {innerChildren}
+      </div>
       {outerChildren}
     </div>
   );

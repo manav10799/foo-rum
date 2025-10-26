@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import mouse from "../assets/mouse.svg";
 import login from "../assets/log-in-2.svg";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import CurrentUser from "../context/UserContext";
 
 const Header = () => {
   const location = useLocation();
-  const { user } = useContext(CurrentUser);
-  console.log(user);
+  const { user, setUser } = useContext(CurrentUser);
+  const navigate = useNavigate();
   return (
     <header>
       <nav
@@ -18,7 +18,17 @@ const Header = () => {
           <img src={mouse} alt="foo-rum logo" aria-hidden="true" />
           <p className="font-extrabold">foo-rum</p>
         </a>
-        {location.pathname !== "/login" ? (
+        {Object.keys(user).length ? (
+          <p
+            className="font-semibold cursor-pointer"
+            onClick={() => {
+              setUser({});
+              navigate("/login");
+            }}
+          >
+            Logout
+          </p>
+        ) : location.pathname !== "/login" ? (
           <Link to="/login">
             <div
               className="flex items-center gap-2 cursor-pointer"
